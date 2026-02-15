@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Review 2025 | Klub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-800);
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+            color: white;
+            padding: 80px 24px 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray-300);
+            margin-bottom: 48px;
+        }
+
+        /* Stats Cards */
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-top: -60px;
+            padding: 0 24px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px 40px;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            min-width: 200px;
+        }
+
+        .stat-card .label {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .stat-card .value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .stat-card.highlight .value {
+            color: var(--success);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section-header {
+            margin-bottom: 32px;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--gray-500);
+            max-width: 700px;
+        }
+
+        /* Context Card */
+        .context-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .context-card h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--gray-900);
+        }
+
+        .context-card p {
+            color: var(--gray-600);
+            margin-bottom: 16px;
+        }
+
+        .context-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Category Badges */
+        .category-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .category-badge.stars {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            color: #92400e;
+        }
+
+        .category-badge.tracking {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            color: #1e40af;
+        }
+
+        .category-badge.watch {
+            background: linear-gradient(135deg, #fef3c7 0%, #fcd34d 100%);
+            color: #92400e;
+        }
+
+        .category-badge.critical {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            color: #991b1b;
+        }
+
+        .category-badge.writeoff {
+            background: linear-gradient(135deg, var(--gray-200) 0%, var(--gray-300) 100%);
+            color: var(--gray-700);
+        }
+
+        /* Company Cards */
+        .companies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
+        .company-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .company-card:hover {
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .company-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .company-date {
+            font-size: 0.75rem;
+            color: var(--gray-400);
+            background: var(--gray-100);
+            padding: 4px 10px;
+            border-radius: 100px;
+        }
+
+        .company-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 20px;
+            padding: 16px;
+            background: var(--gray-50);
+            border-radius: 12px;
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-label {
+            font-size: 0.7rem;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
+        }
+
+        .metric-value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gray-800);
+        }
+
+        .metric-value.positive {
+            color: var(--success);
+        }
+
+        .metric-value.negative {
+            color: var(--danger);
+        }
+
+        .company-description {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+
+        .company-description.collapsed {
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .read-more {
+            color: var(--primary);
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 8px;
+            display: inline-block;
+        }
+
+        .read-more:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Category Section */
+        .category-section {
+            margin-bottom: 60px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--gray-200);
+        }
+
+        .category-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .category-icon.stars { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); }
+        .category-icon.tracking { background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); }
+        .category-icon.watch { background: linear-gradient(135deg, #fef3c7 0%, #fcd34d 100%); }
+        .category-icon.critical { background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%); }
+        .category-icon.writeoff { background: linear-gradient(135deg, var(--gray-200) 0%, var(--gray-300) 100%); }
+
+        .category-info h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .category-info p {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+
+        /* Write-off Section */
+        .writeoff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .writeoff-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            border-left: 4px solid var(--gray-400);
+        }
+
+        .writeoff-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gray-700);
+            margin-bottom: 12px;
+        }
+
+        .writeoff-card p {
+            font-size: 0.8rem;
+            color: var(--gray-500);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            color: var(--gray-400);
+            padding: 40px 24px;
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .stats-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stat-card {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .companies-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .company-metrics {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Revue Portefeuille 2025</h1>
+            <p>État des lieux de nos 21 investissements et perspectives</p>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <div class="stats-container">
+        <div class="stat-card">
+            <div class="label">Montants investis</div>
+            <div class="value">4.4M€</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Valeur du portefeuille</div>
+            <div class="value">5.8M€</div>
+        </div>
+        <div class="stat-card highlight">
+            <div class="label">Plus-value</div>
+            <div class="value">+31.8%</div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Context Section -->
+        <section class="section">
+            <div class="context-card">
+                <h2>Contexte Général et Transformation</h2>
+                <p>L'année 2025 a été une année de consolidation, marquée par un ralentissement assumé du partage d'opportunités afin de privilégier une sélection plus exigeante et des deals plus matures. Dans un contexte de réduction d'équipe, nous avons recentré nos ressources sur ce qui crée le plus de valeur : l'analyse, la structuration et la qualité du pipeline plutôt que le volume.</p>
+                <p>Parallèlement, l'évolution du contexte réglementaire autour des club deals a conduit à une mise en pause temporaire de l'exécution, le temps d'identifier le framework le plus adapté pour opérer durablement et en pleine conformité à l'avenir.</p>
+            </div>
+        </section>
+
+        <!-- Portfolio State -->
+        <section class="section">
+            <div class="context-card">
+                <h2>État du Portefeuille</h2>
+                <p>Sur nos 21 investissements historiques, le portefeuille présente une diversité de situations qui reflète la réalité du capital-risque. Nous observons une forte polarisation avec :</p>
+                <p><strong>13 participations performantes</strong>, dont 9 affichant un potentiel de surperformance significatif, et <strong>7 sociétés en situation critique ou write off</strong> (Together, Starton, Refty, Lum et LVN).</p>
+                <p>Nous sommes aujourd'hui encore au creux de la courbe en J avec l'identification des principaux write-offs mais aussi et surtout la validation des opportunités en bonne santé et qui se démarquent du reste du portefeuille.</p>
+            </div>
+        </section>
+
+        <!-- Stars Category -->
+        <section class="category-section">
+            <div class="category-header">
+                <div class="category-icon stars">⭐</div>
+                <div class="category-info">
+                    <h3>Stars — Fund Returners Potentiels</h3>
+                    <p>PMF validé, croissance significative, potentiel de multiple attractif</p>
+                </div>
+            </div>
+
+            <div class="companies-grid">
+                <!-- INCOM -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <div class="company-name">INCOM</div>
+                        <div class="company-date">Nov. 2024</div>
+                    </div>
+                    <div class="company-metrics">
+                        <div class="metric">
+                            <div class="metric-label">MRR</div>
+                            <div class="metric-value">100K€</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Valorisation</div>
+                            <div class="metric-value">3M€ → 12M€</div>
+                        </div>
+                    </div>
+                    <p class="company-description collapsed">INCOM franchit en 2025 un cap décisif avec l'atteinte de 400 contrats chauffeurs signés, marquant le passage d'une phase de calibration à une phase d'accélération. L'équipe a structuré une véritable "sales machine" : un process clair et répétable, du lead jusqu'au contrat. Le système délivre désormais 30+ nouveaux contrats par semaine, avec 1.4M€+ de revenus annualisés à portée.</p>
+                    <span class="read-more" onclick="toggleDescription(this)">Lire plus →</span>
+                </div>
+
+                <!-- Atom -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <div class="company-name">Atom</div>
+                        <div class="company-date">Nov. 2025</div>
+                    </div>
+                    <div class="company-metrics">
+                        <div class="metric">
+                            <div class="metric-label">MRR</div>
+                            <div class="metric-value">40K€</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Valorisation</div>
+                            <div class="metric-value">1.2M€</div>
+                        </div>
+                    </div>
+                    <p class="company-description collapsed">Atom transforme des micro-espaces parisiens en suites hôtelières pour le logement corporate. CA prévisionnel 2025 de 400k€, avec 10 micrologements détenus en propre visés. Signature d'un contrat stratégique pour un immeuble de 700m² Place des Vosges. Les loyers constatés (100-120€/m²) dépassent les hypothèses initiales.</p>
+                    <span class="read-more" onclick="toggleDescription(this)">Lire plus →</span>
+                </div>
+
+                <!-- Wally -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <div class="company-name">Wally</div>
+                        <div class="company-date">Dec. 2025</div>
+                    </div>
+                    <div class="company-metrics">
+                        <div class="metric">
+                            <div class="metric-label">CA Annuel</div>
+                            <div class="metric-value">1M€</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Valorisation</div>
+                            <div class="metric-value">4M€ → 10M€</div>
+                        </div>
+                    </div>
+                    <p class="company-description collapsed">Dans un contexte de défiance sur le retail immobilier, Wally confirme son accélération : 10M€ investis en 2025, 12 club deals réalisés, 250M€ sourcés. Le socle est robuste : 91% de collecte intermédiée, +300 CGP sous contrat, 12 prospectus déposés en 18 mois, structuration validée par l'AMF.</p>
+                    <span class="read-more" onclick="toggleDescription(this)">Lire plus →</span>
+                </div>
+
+                <!-- La Belle Vie -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <div class="company-name">La Belle Vie</div>
+                        <div class="company-date">Nov. 2025</div>
+                    </div>
+                    <div class="company-metrics">
+                        <div class="metric">
+                            <div class="metric-label">MRR</div>
+                            <div class="metric-value">8.1M€</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Status</div>
+                            <div class="metric-value positive">Profitable</div>
+                        </div>
+                    </div>
+                    <p class="company-description collapsed">Le groupe bascule vers une rentabilité opérationnelle quasi atteinte. CA global de 80M€ à 87M€, EBITDA de -4M€ à -200k€. La Belle Vie et Frichti sont rentables. 17 boutiques ouvertes en moins d'un an, toutes rentables. Retour à des fonds propres positifs.</p>
+                    <span class="read-more" onclick="toggleDescription(this)">Lire plus →</span>
+                </div>
+
+                <!-- Tranché -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <div class="company-name">Tranché</div>
+                        <div class="company-date">Nov. 2025</div>
+                    </div>
+                    <div class="company-metrics">
+                        <div class="metric">
+                            <div class="metric-label">MRR</div>
+                            <div class="metric-value">400K€</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Status</div>
+                            <div class="metric-value positive">Profitable</div>
+                        </div>
+                    </div>
+                    <p class="company-description collapsed">Rentabilité groupe atteinte en mars 2025 avec un EBITDA mensuel de +53k€. CA groupe prévu ~6,2M€. SPRING réinvestit 750k€ à une valorisation pre-money de 8M€. Roadmap : Brochant ouvert, deux nouvelles boulangeries en 2026.</p>
+                    <span class="read-more" onclick="toggleDescription(this)">Lire plus →</span>
+                </div>
+
+                <!-- Jay & Joy -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <div class="company-name">Jay & Joy</div>
+                        <div class="company-date">Nov. 2025</div>
+                    </div>
+                    <div class="company-metrics">
+                        <div class="metric">
+                            <div class="metric-label">MRR</div>
+                            <div class="metric-value">200K€</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Valorisation</div>
+                            <div class="metric-value">5.5M€ → 12.5M€</div>
+                        </div>
+                    </div>
+                    <p class="company-description collapsed">L'acquisition de Les Nouveaux Affineurs se transforme en accélérateur commercial. Croissance de +60% vs 2024. Déploiements majeurs en GMS (Intermarché national, Carrefour). Taux de service >95% au T4. Augmentation de capital de 0.8 à 1M€ lancée.</p>
+                    <span class="read-more" onclick="toggleDescription(this)">Lire plus →</span>
+                </div>
+
+                <!-- Choukran -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <div class="company-name">Choukran</div>
+                        <div class="company-date">Nov. 2025</div>
+                    </div>
+                    <div class="company-metrics">
+                        <div class="metric">
+                            <div class="metric-label">MRR</div>
+                            <div class="metric-value">200K€</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">EBITDA</div>
+                            <div class="metric-value positive">23%</div>
+                        </div>
+                    </div>
+                    <p class="company-description collapsed">En 20 mois d'exploitation : 2 restaurants, +2.3M€ de CA en run rate, trajectoire à +5.5M€ en 2026. Fondamentaux unitaires excellents : 24% food cost, 30% masse salariale. Plan de 35 points de vente en 5 ans, incluant Bruxelles.</p>
+                    <span class="read-more" onclick="toggleDescription(this)">Lire plus →</span>
+                </div>
+
+                <!-- InterCellar -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <div class="company-name">InterCellar</div>
+                        <div class="company-date">Nov. 2024</div>
+                    </div>
+                    <div class="company-metrics">
+                        <div class="metric">
+                            <div class="metric-label">CA Annuel</div>
+                            <div class="metric-value">1.7M€</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Valorisation</div>
+                            <div class="metric-value">3.5M€ → 7M€</div>
+                        </div>
+                    </div>
+                    <p class="company-description collapsed">1.7M€ de CA, 500k€ de résultat net, 1.5M€ de fonds propres. Bordeaux Participations entre au capital à 1M€ (17.47%). Accès privilégié aux ports francs de Genève. Prêt innovation BPI R&D de 700k€ en cours. Lancement $CELLAR le 5 novembre 2025.</p>
+                    <span class="read-more" onclick="toggleDescription(this)">Lire plus →</span>
+                </div>
+
+                <!-- Jolly Mama -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <div class="company-name">Jolly Mama</div>
+                        <div class="company-date">Nov. 2024</div>
+                    </div>
+                    <div class="company-metrics">
+                        <div class="metric">
+                            <div class="metric-label">CA Annuel</div>
+                            <div class="metric-value">3.5M€</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Status</div>
+                            <div class="metric-value positive">Profitable</div>
+                        </div>
+                    </div>
+                    <p class="company-description collapsed">Performance exceptionnelle en décembre : 505k€ HT de CA (+84% vs N-1). CA cumulé 2025 de 5.992M€ HT (+90% vs N-1). L'abonnement représente près d'1/3 du CA. Taux de récurrence qui passe de 40% à ~60%. 650k€ de trésorerie.</p>
+                    <span class="read-more" onclick="toggleDescription(this)">Lire plus →</span>
+                </div>
+
+                <!-- Galooli -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <div class="company-name">Galooli</div>
+                        <div class="company-date">Nov. 2024</div>
+                    </div>
+                    <div class="company-metrics">
+                        <div class="metric">
+                            <div class="metric-label">CA Annuel</div>
+                            <div class="metric-value">19.8M€</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Valorisation</div>
+                            <div class="metric-value">85M€ → 170M€</div>
+                        </div>
+                    </div>
+                    <p class="company-description collapsed">Passage du succès commercial au succès d'exécution. Rollouts stratégiques : Deutsche Telekom (Hongrie, République tchèque), EE (UK), Vodacom (1800 sites Afrique du Sud), IHS Towers (1000 premiers sites Nigeria). Free cash-flow positif.</p>
+                    <span class="read-more" onclick="toggleDescription(this)">Lire plus →</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tracking Category -->
+        <section class="category-section">
+            <div class="category-header">
+                <div class="category-icon tracking">📊</div>
+                <div class="category-info">
+                    <h3>En Suivi — Exécution en Cours</h3>
+                    <p>Runway 12-18 mois, métriques en ligne, business model en validation</p>
+                </div>
+            </div>
+
+            <div class="companies-grid">
+                <!-- Estaly -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <div class="company-name">Estaly</div>
+                        <div class="company-date">Nov. 2024</div>
+                    </div>
+                    <div class="company-metrics">
+                        <div class="metric">
+                            <div class="metric-label">Primes/mois</div>
+                            <div class="metric-value">20K€</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Retailers</div>
+                            <div class="metric-value">326</div>
+                        </div>
+                    </div>
+                    <p class="company-description collapsed">~146k€ de primes brutes collectées par mois, ~63k€ de revenus bruts mensuels. 326 retailers live (+102 sur le trimestre). Bridge de 490k€ en finalisation à 6M€ pre-money avec Holmarcom et des BAs premium.</p>
+                    <span class="read-more" onclick="toggleDescription(this)">Lire plus →</span>
+                </div>
+
+                <!-- TipToque -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <div class="company-name">TipToque</div>
+                        <div class="company-date">Nov. 2024</div>
+                    </div>
+                    <div class="company-metrics">
+                        <div class="metric">
+                            <div class="metric-label">CA Digital YTD</div>
+                            <div class="metric-value">2.25M€</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Trésorerie</div>
+                            <div class="metric-value">764K€</div>
+                        </div>
+                    </div>
+                    <p class="company-description collapsed">Virage digital-first réussi : 215k€ puis 332k€ de CA en octobre-novembre. CA global YTD de 2.6M€ (+60% vs 2024). EBITDA YTD -57k€, novembre repasse légèrement positif.</p>
+                    <span class="read-more" onclick="toggleDescription(this)">Lire plus →</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Watch Category -->
+        <section class="category-section">
+            <div class="category-header">
+                <div class="category-icon watch">⚠️</div>
+                <div class="category-info">
+                    <h3>À Surveiller — PMF à Démontrer</h3>
+                    <p>Runway < 12 mois, cycles de vente longs, levée nécessaire à court terme</p>
+                </div>
+            </div>
+
+            <div class="companies-grid">
+                <!-- Libertify -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <div class="company-name">Libertify</div>
+                        <div class="company-date">Nov. 2024</div>
+                    </div>
+                    <div class="company-metrics">
+                        <div class="metric">
+                            <div class="metric-label">CA Annuel</div>
+                            <div class="metric-value">500K€</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Valorisation</div>
+                            <div class="metric-value">15M€ → 25-50M€</div>
+                        </div>
+                    </div>
+                    <p class="company-description collapsed">Pivot vers l'IA générative avec AIR.M validé. 333k€ de CA en 2024. Pilotes avec BNP, Crédit Agricole, Natixis, Generali, Boursorama. Principal frein : cycles de vente très longs (12-18+ mois). Bridge de 2.05M€ sécurisé.</p>
+                    <span class="read-more" onclick="toggleDescription(this)">Lire plus →</span>
+                </div>
+
+                <!-- Dropee -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <div class="company-name">Dropee (ex-Tropee)</div>
+                        <div class="company-date">Nov. 2025</div>
+                    </div>
+                    <div class="company-metrics">
+                        <div class="metric">
+                            <div class="metric-label">MRR</div>
+                            <div class="metric-value">12K€</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Runway</div>
+                            <div class="metric-value">15 mois</div>
+                        </div>
+                    </div>
+                    <p class="company-description collapsed">Traction massive sur Telegram et leadership sur TON. Mois quasi break-even malgré la baisse du marketing. $111k générés en 19 jours d'activité. Launchpad sécurisé ($500-600k après TGE). Discussions avec CEX Tier 1.</p>
+                    <span class="read-more" onclick="toggleDescription(this)">Lire plus →</span>
+                </div>
+
+                <!-- Carbonable -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <div class="company-name">Carbonable</div>
+                        <div class="company-date">Nov. 2024</div>
+                    </div>
+                    <div class="company-metrics">
+                        <div class="metric">
+                            <div class="metric-label">CA Annuel</div>
+                            <div class="metric-value">880K€</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Runway</div>
+                            <div class="metric-value">~18 mois</div>
+                        </div>
+                    </div>
+                    <p class="company-description collapsed">Bear market sustainability et retards réglementaires. Restructuration : de 12 à 2 FTE, burn de 90k€ à 25k€/mois. 439k€ de revenus 2024 (+105% vs 2023). JEI/CIR validés (+498k€ net). Deal verbal avec Pierre Fabre.</p>
+                    <span class="read-more" onclick="toggleDescription(this)">Lire plus →</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Critical Category -->
+        <section class="category-section">
+            <div class="category-header">
+                <div class="category-icon critical">🔴</div>
+                <div class="category-info">
+                    <h3>Situation Critique</h3>
+                    <p>< 6 mois de trésorerie, difficultés opérationnelles marquées</p>
+                </div>
+            </div>
+
+            <div class="companies-grid">
+                <!-- Yes Or No -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <div class="company-name">Yes Or No</div>
+                        <div class="company-date">Nov. 2024</div>
+                    </div>
+                    <div class="company-metrics">
+                        <div class="metric">
+                            <div class="metric-label">MRR</div>
+                            <div class="metric-value">Démarrage</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Valorisation</div>
+                            <div class="metric-value">4.3M€ → 5M€</div>
+                        </div>
+                    </div>
+                    <p class="company-description collapsed">Licence ANJ obtenue (milestone majeur). Pivot produit vers offre casual gaming en avril 2025. Tests encourageants : CAC ÷4, profitabilité x2. Deux scénarios : arrêt/liquidation ou maintien minimal pour cession de licence (besoin ~200k€).</p>
+                    <span class="read-more" onclick="toggleDescription(this)">Lire plus →</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Write-offs -->
+        <section class="category-section">
+            <div class="category-header">
+                <div class="category-icon writeoff">💀</div>
+                <div class="category-info">
+                    <h3>Write-offs</h3>
+                    <p>Positions dépréciées — Leçons apprises</p>
+                </div>
+            </div>
+
+            <div class="writeoff-grid">
+                <div class="writeoff-card">
+                    <h4>Starton</h4>
+                    <p>Échec du modèle économique malgré plusieurs pivots. Reprise à 1€ par un ancien client pour transformation en startup studio.</p>
+                </div>
+                <div class="writeoff-card">
+                    <h4>Together</h4>
+                    <p>Impact de la chute Terra/LUNA et FTX. Retrait du partenaire Skeepers. Échec du lancement Cosmosmillions.</p>
+                </div>
+                <div class="writeoff-card">
+                    <h4>Refty</h4>
+                    <p>Absence de traction suffisante. Revenus insuffisants. Épuisement de la trésorerie. Concurrence établie (Daily.dev).</p>
+                </div>
+                <div class="writeoff-card">
+                    <h4>LVN (Lum)</h4>
+                    <p>135k€ en marketing Web3 + 100k€ transférés à ELEVENPARIS (procédure de sauvegarde). Créance à perspectives limitées.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Klub — Portfolio Review 2025</p>
+    </footer>
+
+    <script>
+        function toggleDescription(btn) {
+            const desc = btn.previousElementSibling;
+            if (desc.classList.contains('collapsed')) {
+                desc.classList.remove('collapsed');
+                btn.textContent = '← Réduire';
+            } else {
+                desc.classList.add('collapsed');
+                btn.textContent = 'Lire plus →';
+            }
+        }
+    </script>
+</body>
+</html>
