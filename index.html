@@ -465,6 +465,48 @@
             .companies-grid { grid-template-columns: 1fr; }
             footer { flex-direction: column; gap: 24px; text-align: center; }
         }
+    /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal {
+            background: var(--white);
+            border-radius: 16px;
+            max-width: 700px;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 40px;
+            position: relative;
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px; right: 20px;
+            background: var(--silver);
+            border: none;
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-close:hover { background: var(--gray-light); }
+        .modal-header { margin-bottom: 24px; }
+        .modal-logo { height: 40px; margin-bottom: 16px; }
+        .modal-title { font-size: 1.5rem; font-weight: 700; color: var(--charcoal); margin-bottom: 8px; }
+        .modal-date { font-size: 0.75rem; color: var(--gray); }
+        .modal-metrics { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; padding: 20px; background: var(--off-white); border-radius: 12px; margin-bottom: 24px; }
+        .modal-content { font-size: 0.95rem; color: var(--charcoal); line-height: 1.9; white-space: pre-line; }
     </style>
 </head>
 <body>
@@ -567,7 +609,7 @@ Après un été consacré à tester et fiabiliser les fondamentaux (80 chauffeur
 Au-delà des chiffres, INCOM construit une marque de confiance auprès des VTC parisiens. Sous l'impulsion de Dany et Victor, la société devient un mouvement d'appartenance autant qu'un service : indépendance "avec dignité", portée par la tech et la confiance.
 
 Avec 400 chauffeurs, INCOM se repositionne d'un early launch vers un émergent leader de catégorie, avec 1.4M€+ de revenus annualisés à portée.</p>
-                    <span class="read-toggle" onclick="toggleDescription(this)">Lire plus</span>
+                    <span class="read-toggle" onclick="openModal(this)">Lire plus</span>
                 </div>
 
                 <!-- Atom -->
@@ -591,7 +633,7 @@ Avec 400 chauffeurs, INCOM se repositionne d'un early launch vers un émergent l
 Au T3 2025, la traction se confirme. Le chiffre d'affaires prévisionnel 2025 s'établit à 400k€, dont 10% récurrents (locations). Atom vise 10 micrologements détenus en propre d'ici fin d'année, avec 17 micro-units vendues à des investisseurs et 22 signatures notaires en cours.
 
 Le dernier trimestre est marqué par un jalon stratégique : la signature d'un contrat de rénovation et d'exploitation pour un immeuble de 700 m² dans le 4e (Place des Vosges), conçu en "Full Atom design" avec amenities premium. La validation marché est très forte : les loyers constatés (100–120 €/m²/mois) dépassent les hypothèses de départ (80–90 €/m²).</p>
-                    <span class="read-toggle" onclick="toggleDescription(this)">Lire plus</span>
+                    <span class="read-toggle" onclick="openModal(this)">Lire plus</span>
                 </div>
 
                 <!-- Wally -->
@@ -615,7 +657,7 @@ Le dernier trimestre est marqué par un jalon stratégique : la signature d'un c
 Les KPIs 2025 indiquent un PMF solide côté distribution CGP : 1,0 M€ de CA HT, 320 partenaires CGP, 7 500 clients, 7% de rendement moyen et 11% de TRI actualisé, avec 530 K€ de cash au 31/12/2025.
 
 Le socle est robuste : 91% de collecte intermédiée, +300 CGP sous contrat, 12 prospectus déposés en 18 mois, structuration validée par l'AMF, et maîtrise tech in-house.</p>
-                    <span class="read-toggle" onclick="toggleDescription(this)">Lire plus</span>
+                    <span class="read-toggle" onclick="openModal(this)">Lire plus</span>
                 </div>
 
                 <!-- La Belle Vie -->
@@ -639,7 +681,7 @@ Le socle est robuste : 91% de collecte intermédiée, +300 CGP sous contrat, 12 
 Sur l'année, le CA global progresse de 80M€ à 87M€, et la performance financière s'améliore fortement avec un EBITDA qui passe de –4M€ à –200k€. Les deux moteurs deviennent rentables : La Belle Vie est rentable, et Frichti l'est depuis septembre 2025.
 
 Côté croissance : 17 boutiques ouvertes en moins d'un an, toutes rentables, et montée en puissance du B2B avec 5 grosses cafétérias ouvertes dans des entreprises du CAC 40. Signal capital : retour à des fonds propres positifs.</p>
-                    <span class="read-toggle" onclick="toggleDescription(this)">Lire plus</span>
+                    <span class="read-toggle" onclick="openModal(this)">Lire plus</span>
                 </div>
 
                 <!-- Tranché -->
@@ -663,7 +705,7 @@ Côté croissance : 17 boutiques ouvertes en moins d'un an, toutes rentables, et
 Sur le plan financier, nous avons atteint un jalon clé avec la rentabilité groupe en mars 2025, avec un EBITDA mensuel positif d'environ +53k€. Le prévisionnel 2025 confirme cette trajectoire, avec un CA groupe ~6,2M€ et un EBITDA ~281k€.
 
 SPRING (actionnaire depuis mars 2024) réinvestit 750k€ sur une valorisation pre-money de 8M€. Roadmap : Brochant (sept. 2025), puis deux nouvelles boulangeries en 2026.</p>
-                    <span class="read-toggle" onclick="toggleDescription(this)">Lire plus</span>
+                    <span class="read-toggle" onclick="openModal(this)">Lire plus</span>
                 </div>
 
                 <!-- Jay & Joy -->
@@ -687,7 +729,7 @@ SPRING (actionnaire depuis mars 2024) réinvestit 750k€ sur une valorisation p
 Déploiements majeurs : Intermarché national, Carrefour régional puis IDF. Pipeline avancé pour 2026 : Leclerc, Carrefour national, Système U. Deux prix innovation 2025 chez Carrefour et Leclerc.
 
 Le board lance une augmentation de capital de 0,8 à 1M€, réservée aux actionnaires existants, à une valorisation de 12,5M€.</p>
-                    <span class="read-toggle" onclick="toggleDescription(this)">Lire plus</span>
+                    <span class="read-toggle" onclick="openModal(this)">Lire plus</span>
                 </div>
 
                 <!-- Choukran -->
@@ -711,7 +753,7 @@ Le board lance une augmentation de capital de 0,8 à 1M€, réservée aux actio
 Fondamentaux unitaires excellents : 24% food cost, 30% masse salariale et 23% d'EBITDA. Business model street-food efficient : +150 couverts/jour, 43 min de durée moyenne à table.
 
 Roadmap : 35 points de vente en 5 ans, incluant Bruxelles. Plan de financement : 1,5M€ en equity + 1,5M€ de dette.</p>
-                    <span class="read-toggle" onclick="toggleDescription(this)">Lire plus</span>
+                    <span class="read-toggle" onclick="openModal(this)">Lire plus</span>
                 </div>
 
                 <!-- InterCellar -->
@@ -735,7 +777,7 @@ Roadmap : 35 points de vente en 5 ans, incluant Bruxelles. Plan de financement :
 L'arrivée de Shahab Izadpanah comme Chairman change l'échelle : intégration dans l'écosystème N°OW'HERE, exclusivité sur 10M€ de stock, accès aux ports francs de Genève.
 
 Prêt innovation BPI R&D de 700k€ en cours. Lancement public de $CELLAR le 5 novembre 2025 sur SwissBorg.</p>
-                    <span class="read-toggle" onclick="toggleDescription(this)">Lire plus</span>
+                    <span class="read-toggle" onclick="openModal(this)">Lire plus</span>
                 </div>
 
                 <!-- Jolly Mama -->
@@ -759,7 +801,7 @@ Prêt innovation BPI R&D de 700k€ en cours. Lancement public de $CELLAR le 5 n
 Fait marquant 2025 : l'abonnement représente près d'1/3 du CA en décembre. Taux de récurrence passé de 40% à ~60% sur l'année.
 
 Les autres canaux confirment : B2B au-dessus des prévisions avec une entrée pharmacie CAP 3000 à Nice, Amazon x2,7 vs N-1.</p>
-                    <span class="read-toggle" onclick="toggleDescription(this)">Lire plus</span>
+                    <span class="read-toggle" onclick="openModal(this)">Lire plus</span>
                 </div>
 
                 <!-- Galooli -->
@@ -783,7 +825,7 @@ Les autres canaux confirment : B2B au-dessus des prévisions avec une entrée ph
 Rollouts stratégiques : Deutsche Telekom (Hongrie, République tchèque), EE UK, Vodacom/MAST (1 800 sites Afrique du Sud), IHS Towers Nigeria (1 000 premiers sites).
 
 Financièrement solide, pas de besoin immédiat de levée. Priorité 2026 : accélérer les rollouts et s'ouvrir à d'autres industries.</p>
-                    <span class="read-toggle" onclick="toggleDescription(this)">Lire plus</span>
+                    <span class="read-toggle" onclick="openModal(this)">Lire plus</span>
                 </div>
             </div>
         </div>
@@ -820,7 +862,7 @@ Financièrement solide, pas de besoin immédiat de levée. Priorité 2026 : acc�
 Évolution vers une plateforme "embedded services" pour retailers, avec 92,9% de satisfaction et temps de réponse médian 19 min.
 
 Bridge de 490k€ en finalisation à 6M€ pre-money, avec Holmarcom et des BAs premium (ex-CEO SCOR, experts insurtech).</p>
-                    <span class="read-toggle" onclick="toggleDescription(this)">Lire plus</span>
+                    <span class="read-toggle" onclick="openModal(this)">Lire plus</span>
                 </div>
 
                 <!-- TipToque -->
@@ -844,7 +886,7 @@ Bridge de 490k€ en finalisation à 6M€ pre-money, avec Holmarcom et des BAs 
 CA global YTD : 2,606M€ (+60% vs 2024). EBITDA YTD -57k€, novembre légèrement positif (+1,4k€).
 
 Trésorerie solide à 764k€ fin novembre. Effort d'investissement produit significatif (~247k€ de CAPEX marketplace YTD).</p>
-                    <span class="read-toggle" onclick="toggleDescription(this)">Lire plus</span>
+                    <span class="read-toggle" onclick="openModal(this)">Lire plus</span>
                 </div>
             </div>
         </div>
@@ -881,7 +923,7 @@ Trésorerie solide à 764k€ fin novembre. Effort d'investissement produit sign
 Traction enterprise forte : pilotes avec BNP, Crédit Agricole, Natixis, Generali, Boursorama, EY, et en Asie/Moyen-Orient. Principal frein : cycles de vente 12-18+ mois.
 
 Bridge de 2,05M€ sécurisé (dont 1M€ investi par le CEO). Stratégie : maintenir grands comptes + offensive dans secteurs non régulés.</p>
-                    <span class="read-toggle" onclick="toggleDescription(this)">Lire plus</span>
+                    <span class="read-toggle" onclick="openModal(this)">Lire plus</span>
                 </div>
 
                 <!-- Dropee -->
@@ -905,7 +947,7 @@ Bridge de 2,05M€ sécurisé (dont 1M€ investi par le CEO). Stratégie : main
 Décembre : $111k générés en seulement 19 jours d'activité, validant la robustesse de la monétisation.
 
 Launchpad sécurisé ($500-600k après TGE mi-février), KOL round bouclée ($57k). Discussions avec CEX Tier 1 (Binance, Coinbase, OKX).</p>
-                    <span class="read-toggle" onclick="toggleDescription(this)">Lire plus</span>
+                    <span class="read-toggle" onclick="openModal(this)">Lire plus</span>
                 </div>
 
                 <!-- Carbonable -->
@@ -929,7 +971,7 @@ Launchpad sécurisé ($500-600k après TGE mi-février), KOL round bouclée ($57
 439k€ de revenus 2024 (+105% vs 2023). JEI/CIR validés : +498k€ net encaissé début 2025.
 
 Deal verbal avec Pierre Fabre. Stratégie : tenir jusqu'au rebond mi-2026 tout en explorant M&A/sorties.</p>
-                    <span class="read-toggle" onclick="toggleDescription(this)">Lire plus</span>
+                    <span class="read-toggle" onclick="openModal(this)">Lire plus</span>
                 </div>
             </div>
         </div>
@@ -964,7 +1006,7 @@ Deal verbal avec Pierre Fabre. Stratégie : tenir jusqu'au rebond mi-2026 tout e
 Tests encourageants : CAC ÷4, profitabilité x2 vs historiques, rétention en hausse. Malgré démarche très large (>1000 BA), le marché s'est refermé.
 
 Deux scénarios : arrêt/liquidation ou maintien minimal pour cession de licence (besoin ~200k€, coûts fixes ~6-7k€/mois).</p>
-                    <span class="read-toggle" onclick="toggleDescription(this)">Lire plus</span>
+                    <span class="read-toggle" onclick="openModal(this)">Lire plus</span>
                 </div>
             </div>
         </div>
@@ -1052,8 +1094,7 @@ Deux scénarios : arrêt/liquidation ou maintien minimal pour cession de licence
         const reveals = document.querySelectorAll('.reveal');
         const revealOnScroll = () => {
             reveals.forEach(el => {
-                const top = el.getBoundingClientRect().top;
-                if (top < window.innerHeight - 100) {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) {
                     el.classList.add('visible');
                 }
             });
@@ -1061,20 +1102,53 @@ Deux scénarios : arrêt/liquidation ou maintien minimal pour cession de licence
         window.addEventListener('scroll', revealOnScroll);
         revealOnScroll();
 
-        // Nav scroll
-        const nav = document.querySelector('nav');
-        window.addEventListener('scroll', () => {
-            nav.classList.toggle('scrolled', window.scrollY > 50);
+        // Modal functions
+        function openModal(btn) {
+            const card = btn.closest('.company-card');
+            const logo = card.querySelector('.company-logo');
+            const name = card.querySelector('.company-name');
+            const date = card.querySelector('.company-date');
+            const metrics = card.querySelector('.company-metrics');
+            const desc = card.querySelector('.company-description');
+            
+            document.getElementById('modal-logo').src = logo ? logo.src : '';
+            document.getElementById('modal-logo').style.display = logo ? 'block' : 'none';
+            document.getElementById('modal-title').textContent = name ? name.textContent : (logo ? logo.alt : '');
+            document.getElementById('modal-date').textContent = date ? date.textContent : '';
+            document.getElementById('modal-metrics').innerHTML = metrics ? metrics.innerHTML : '';
+            document.getElementById('modal-content').textContent = desc ? desc.textContent : '';
+            
+            document.getElementById('modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close on overlay click
+        document.getElementById('modal').addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal-overlay')) closeModal();
         });
 
-        // Toggle description
-        function toggleDescription(btn) {
-            const card = btn.closest('.company-card');
-            const desc = card.querySelector('.company-description');
-            const isExpanded = !desc.classList.contains('collapsed');
-            desc.classList.toggle('collapsed');
-            btn.textContent = isExpanded ? 'Lire plus' : 'Réduire';
-        }
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
     </script>
+<!-- Modal -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div class="modal-header">
+                <img id="modal-logo" class="modal-logo" src="" alt="">
+                <div id="modal-title" class="modal-title"></div>
+                <div id="modal-date" class="modal-date"></div>
+            </div>
+            <div id="modal-metrics" class="modal-metrics"></div>
+            <div id="modal-content" class="modal-content"></div>
+        </div>
+    </div>
 </body>
 </html>
