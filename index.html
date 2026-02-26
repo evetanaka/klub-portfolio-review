@@ -87,10 +87,10 @@
     ];
 
     const CATEGORY_META = {
-      STARS: { title: "[★] TOP PERFORMERS", desc: "Ces sociétés ont validé leur product market fit et montrent une croissance significative de leurs revenus récurrents. Leurs KPIs démontrent une accélération marquée et leur potentiel en fait des candidates sérieuses pour être des fund returners.", badgeStyle: "bg-[#ffffff] text-[#0d0d0d]" },
-      TRACKING: { title: "[-] EN SUIVI", desc: "Ces participations suivent leur plan d'exécution avec un runway de 12-18 mois. Leurs métriques opérationnelles et financières sont en ligne avec les attentes. Le burn rate est maîtrisé.", badgeStyle: "border border-[#ffffff] text-[#ffffff]" },
-      WATCH: { title: "[!] À SURVEILLER", desc: "Ces sociétés présentent un runway inférieur à 12 mois et un product market fit encore à démontrer. Une levée de fonds sera nécessaire à court terme.", badgeStyle: "bg-[#2a2a2a] text-[#ffffff] border border-[#6b6b6b]" },
-      CRITICAL: { title: "[X] SITUATION CRITIQUE", desc: "Positions avec moins de 6 mois de trésorerie restante et des difficultés opérationnelles marquées. Risque significatif de cessation d'activité.", badgeStyle: "bg-[#ffffff] text-[#0d0d0d] animate-pulse" }
+      STARS: { title: "[★] TOP PERFORMERS", desc: "Ces sociétés ont validé leur product market fit et montrent une croissance significative de leurs revenus récurrents. Leurs KPIs démontrent une accélération marquée et leur potentiel en fait des candidates sérieuses pour être des fund returners.", badgeStyle: "bg-[#D4AF37] text-[#0d0d0d]", accentColor: "#D4AF37", borderHover: "hover:border-[#D4AF37]" },
+      TRACKING: { title: "[—] EN SUIVI", desc: "Ces participations suivent leur plan d'exécution avec un runway de 12-18 mois. Leurs métriques opérationnelles et financières sont en ligne avec les attentes. Le burn rate est maîtrisé.", badgeStyle: "bg-[#22c55e] text-[#0d0d0d]", accentColor: "#22c55e", borderHover: "hover:border-[#22c55e]" },
+      WATCH: { title: "[!] À SURVEILLER", desc: "Ces sociétés présentent un runway inférieur à 12 mois et un product market fit encore à démontrer. Une levée de fonds sera nécessaire à court terme.", badgeStyle: "bg-[#f59e0b] text-[#0d0d0d]", accentColor: "#f59e0b", borderHover: "hover:border-[#f59e0b]" },
+      CRITICAL: { title: "[X] SITUATION CRITIQUE", desc: "Positions avec moins de 6 mois de trésorerie restante et des difficultés opérationnelles marquées. Risque significatif de cessation d'activité.", badgeStyle: "bg-[#ef4444] text-[#ffffff] animate-pulse", accentColor: "#ef4444", borderHover: "hover:border-[#ef4444]" }
     };
 
     const Navbar = () => (
@@ -140,9 +140,9 @@
           </div>
           <div className="md:pl-8">
             <div className="font-mono text-5xl md:text-6xl text-[#ffffff] font-bold mb-2">
-              +31.8<span className="text-[#6b6b6b]">%</span>
+              +31.8<span className="text-[#22c55e]">%</span>
             </div>
-            <div className="font-mono text-xs text-[#ffffff] uppercase tracking-widest">Plus value globale</div>
+            <div className="font-mono text-xs text-[#22c55e] uppercase tracking-widest">Plus value globale</div>
           </div>
         </div>
       </header>
@@ -190,7 +190,7 @@
 
       return (
         <div className="mb-32">
-          <div className="mb-12 border-b border-[#2a2a2a] pb-8">
+          <div className="mb-12 border-b border-[#2a2a2a] pb-8 border-l-4 pl-6" style={{borderLeftColor: meta.accentColor}}>
             <div className="flex items-center gap-4 mb-6">
               <span className={`px-3 py-1 font-mono text-xs font-bold uppercase tracking-widest ${meta.badgeStyle}`}>
                 {meta.title}
@@ -202,12 +202,12 @@
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {items.map((company, idx) => (
-              <div key={idx} className="border border-[#2a2a2a] p-6 group hover:bg-[#ffffff] transition-none cursor-crosshair flex flex-col h-full min-h-[320px]">
+              <div key={idx} className={`border border-[#2a2a2a] p-6 group hover:bg-[#ffffff] transition-none cursor-crosshair flex flex-col h-full min-h-[320px] ${meta.borderHover}`} style={{'--accent': meta.accentColor}}>
                 <div className="flex justify-between items-start mb-12 font-mono text-xs uppercase">
                   <span className="text-[#6b6b6b] group-hover:text-[#6b6b6b] border border-[#2a2a2a] group-hover:border-[#a0a0a0] px-2 py-1">
                     {company.date}
                   </span>
-                  <span className="text-[#a0a0a0] group-hover:text-[#0d0d0d] font-bold">
+                  <span className="font-bold px-2 py-1" style={{color: meta.accentColor}}>
                     [{category.substring(0, 3)}]
                   </span>
                 </div>
@@ -239,9 +239,9 @@
 
     const WriteOffs = () => (
       <section id="writeoffs" className="py-20 px-4 md:px-8 bg-[#0d0d0d] border-t-8 border-[#2a2a2a]">
-        <div className="mb-12 border-b border-[#2a2a2a] pb-8">
+        <div className="mb-12 border-b border-[#2a2a2a] pb-8 border-l-4 border-l-[#ef4444] pl-6">
           <div className="flex items-center gap-4 mb-6">
-            <span className="px-3 py-1 font-mono text-xs font-bold uppercase tracking-widest bg-[#2a2a2a] text-[#a0a0a0] line-through">
+            <span className="px-3 py-1 font-mono text-xs font-bold uppercase tracking-widest bg-[#ef4444]/20 text-[#ef4444] line-through">
               [X] WRITE-OFFS
             </span>
           </div>
