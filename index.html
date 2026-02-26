@@ -502,12 +502,14 @@
     // APP — SPA ROUTER
     // =============================================
     function App() {
-      const [page, setPage] = useState('landing');
+      const initialPage = window.location.pathname === '/portfolio-review' ? 'portfolio' : 'landing';
+      const [page, setPage] = useState(initialPage);
       const [selectedCompany, setSelectedCompany] = useState(null);
 
       const navigate = (p) => {
         setPage(p);
         setSelectedCompany(null);
+        window.history.pushState(null, '', p === 'portfolio' ? '/portfolio-review' : '/');
         window.scrollTo(0, 0);
       };
 
